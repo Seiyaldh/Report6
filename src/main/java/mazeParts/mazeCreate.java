@@ -51,5 +51,54 @@ public class mazeCreate {
             }
         }
     }
-    
+    /*掘りたい方向が掘れるか掘れないかの判断をする。
+  行きたい方向の2マス先が一番端以上、もしくはす
+  でに掘っているならfalse,そうでないならtrueを返す。
+ */
+    static boolean canCreate(int[][]maze, int direction, int row, int col) {
+        switch (direction) {
+            case 0:
+                if (col - 2 <= 0) {
+                    return false;
+                } else {
+                    if (maze[row][col - 2] == 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            case 1:
+                if (col + 2 >= maze[0].length - 1) {
+                    return false;
+                } else {
+                    if (maze[row][col + 2] == 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            case 2:
+                if (row - 2 <= 0) {
+                    return false;
+                } else {
+                    if (maze[row - 2][col] == 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            case 3:
+                if (row + 2 >= maze.length - 1) {
+                    return false;
+                } else {
+                    if (maze[row + 2][col] == 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            default:
+        }
+        return false;
+    }
 }
