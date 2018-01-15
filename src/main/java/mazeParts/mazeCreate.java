@@ -101,4 +101,17 @@ public class mazeCreate {
         }
         return false;
     }
+    //全ての数値を見て、1なら空白、0なら壁を出力する。
+    public static void outputMaze(int [][] maze) {
+        for (int i = 0; i < maze.length; i++) {
+            for (int j = 0; j < maze[i].length; j++) {
+                if (maze[i][j] == 0) {
+                    System.out.print("■");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
